@@ -6,11 +6,16 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
+  if (query.toLowerCase().includes("name")) {
+    //TODO add your Andrew ID below
+    //TODO update the corresponding test case in __tests__
+    return ( "My name is May Thu Khin." );
+  }
 
   if (query.toLowerCase().includes("andrew id")) {
     //TODO add your Andrew ID below
     //TODO update the corresponding test case in __tests__
-    return ( "YOUR ANDREW ID SHOULD BE HERE" );
+    return ( "My Andrew ID is mkhin." );
   }
   return "";
 }
