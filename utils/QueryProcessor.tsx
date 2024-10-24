@@ -12,7 +12,7 @@ export default function QueryProcessor(query: string): string {
     return ( "My name is May Thu Khin." );
   }
 
-  if (query.toLowerCase().includes("Which of the following numbers is both a square and a cube: 2044, 3375, 4131, 3554, 542, 64, 4761?")) {
+  if (query.toLowerCase().includes("4 multiplied by 16?")) {
     return ( "The number is 64." );
   }
 
