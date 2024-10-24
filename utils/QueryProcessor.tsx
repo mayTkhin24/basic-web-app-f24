@@ -11,6 +11,12 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "My name is May Thu Khin." );
   }
+      // Function to check if a number is both a perfect square and cube
+      function isSquareAndCube(number: number) {
+        const sqrt = Math.sqrt(number);
+        const cbrt = Math.cbrt(number);
+        return Number.isInteger(sqrt) && Number.isInteger(cbrt);
+      }
   
   if (query.toLowerCase().includes("andrew id")) {
     //TODO add your Andrew ID below
@@ -26,24 +32,22 @@ export default function QueryProcessor(query: string): string {
   } 
 
   if (query.toLowerCase().includes("a square and a cube")) {
-    // Extract numbers from the query
-    const numbers = query.match(/\d+/g).map(Number);
-  
-    // Function to check if a number is both a perfect square and cube
-    function isSquareAndCube(number) {
-      const sqrt = Math.sqrt(number);
-      const cbrt = Math.cbrt(number);
-      return Number.isInteger(sqrt) && Number.isInteger(cbrt);
-    }
-  
+  // Extract numbers from the query
+  const matches = query.match(/\d+/g);
+  if (matches) {
+    const numbers = matches.map(Number);
+
     // Filter numbers that are both a square and a cube
     const squareAndCube = numbers.filter(isSquareAndCube);
-  
+
     // Return the results
     return squareAndCube.length > 0
       ? `The number(s) that is both a square and a cube: ${squareAndCube.join(', ')}`
       : "No number is both a square and a cube.";
+  } else {
+    return "No numbers found in the query.";
   }
+}
 
 
   return "";
