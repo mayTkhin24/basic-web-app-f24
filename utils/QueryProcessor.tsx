@@ -26,9 +26,15 @@ export default function QueryProcessor(query: string): string {
 
   if (query.toLowerCase().includes("largest")) {
     // Extract numbers and find the largest
-    const numbers = query.match(/\d+/g).map(Number);
+    const matches = query.match(/\d+/g);
+    if (matches) {
+    const numbers = matches.map(Number);
     const largest = Math.max(...numbers);
     return `${largest}`;
+    }
+    else {
+      return "No numbers found in the query.";
+    }
   } 
 
   if (query.toLowerCase().includes("a square and a cube")) {
