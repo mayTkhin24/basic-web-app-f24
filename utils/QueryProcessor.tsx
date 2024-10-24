@@ -11,17 +11,40 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "My name is May Thu Khin." );
   }
-
-  if (query.toLowerCase().includes("4 multiplied by 16?")) {
-    return ( "The number is 64." );
-  }
-
   
-
   if (query.toLowerCase().includes("andrew id")) {
     //TODO add your Andrew ID below
     //TODO update the corresponding test case in __tests__
     return ( "My Andrew ID is mkhin." );
   }
+
+  if (query.toLowerCase().includes("largest")) {
+    // Extract numbers and find the largest
+    const numbers = query.match(/\d+/g).map(Number);
+    const largest = Math.max(...numbers);
+    return `${largest}`;
+  } 
+
+  if (query.toLowerCase().includes("a square and a cube")) {
+    // Extract numbers from the query
+    const numbers = query.match(/\d+/g).map(Number);
+  
+    // Function to check if a number is both a perfect square and cube
+    function isSquareAndCube(number) {
+      const sqrt = Math.sqrt(number);
+      const cbrt = Math.cbrt(number);
+      return Number.isInteger(sqrt) && Number.isInteger(cbrt);
+    }
+  
+    // Filter numbers that are both a square and a cube
+    const squareAndCube = numbers.filter(isSquareAndCube);
+  
+    // Return the results
+    return squareAndCube.length > 0
+      ? `The number(s) that is both a square and a cube: ${squareAndCube.join(', ')}`
+      : "No number is both a square and a cube.";
+  }
+
+
   return "";
 }
